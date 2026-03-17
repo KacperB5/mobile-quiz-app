@@ -1,55 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#1E1E1E"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="32dp"
-    android:gravity="center">
+    android:padding="32dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Quizooos"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:textColor="#6200EE"
-        android:layout_marginBottom="48dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logowanie"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="32dp"/>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logo"
+        android:layout_marginBottom="16dp"/>
 
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Login"
-        android:inputType="text"/>
+        android:hint="Nazwa użytkownika"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#BBBBBB"
+        android:layout_marginBottom="16dp"/>
 
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Hasło"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#BBBBBB"
         android:inputType="textPassword"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginBottom="24dp"/>
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Zaloguj się"
-        android:layout_marginTop="32dp"/>
+        android:text="Zaloguj"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#6200EE"
+        android:layout_marginBottom="16dp"/>
 
     <Button
         android:id="@+id/btnGoToRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nie masz konta? Zarejestruj się"
-        android:backgroundTint="#808080"
-        android:layout_marginTop="16dp"/>
+        android:text="Stwórz konto"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#03DAC5"/>
 </LinearLayout>

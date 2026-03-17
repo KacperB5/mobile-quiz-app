@@ -11,8 +11,7 @@ import java.io.IOException
 
 class RegisterActivity : AppCompatActivity() {
 
-    // Używamy Twojego IP! Zmieniliśmy tylko końcówkę na register.php
-    private val apiUrl = "http://192.168.100.6/api/register.php"
+    private val apiUrl = "https://quiz-app.alwaysdata.net/api/register.php"
     private val client = OkHttpClient()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +22,9 @@ class RegisterActivity : AppCompatActivity() {
         val etRegPassword = findViewById<EditText>(R.id.etRegPassword)
         val btnRegisterSubmit = findViewById<Button>(R.id.btnRegisterSubmit)
 
+        // 1. Znajdujemy przycisk Powróć
+        val btnBack = findViewById<Button>(R.id.btnBack)
+
         btnRegisterSubmit.setOnClickListener {
             val username = etRegUsername.text.toString()
             val password = etRegPassword.text.toString()
@@ -32,6 +34,10 @@ class RegisterActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Wypełnij wszystkie pola", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        btnBack.setOnClickListener {
+            finish()
         }
     }
 
@@ -55,20 +61,14 @@ class RegisterActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call, response: Response) {
                 val responseData = response.body?.string()
-
                 if (responseData != null) {
                     try {
                         val json = JSONObject(responseData)
                         val status = json.getString("status")
                         val message = json.getString("message")
-
                         runOnUiThread {
-                            if (status == "success") {
-                                Toast.makeText(this@RegisterActivity, message, Toast.LENGTH_LONG).show()
-                                finish() // Zamyka ekran rejestracji i wraca do logowania!
-                            } else {
-                                Toast.makeText(this@RegisterActivity, message, Toast.LENGTH_SHORT).show()
-                            }
+                            Toast.makeText(this@RegisterActivity, message, Toast.LENGTH_LONG).show()
+                            if (status == "success") finish()
                         }
                     } catch (e: Exception) {
                         runOnUiThread {

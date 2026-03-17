@@ -1,5 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#3498DB</color>
+    <color name="colorPrimaryDark">#1B263B</color>
+    <color name="colorAccent">#2ECC71</color>
+    <color name="dark_bg">#0D1B2A</color>
+    <color name="card">#1B263B</color>
+    <color name="success">#2ECC71</color>
+    <color name="danger">#E74C3C</color>
 </resources>
